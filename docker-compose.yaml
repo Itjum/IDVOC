@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:alpine
+    restart: always
+  
+  web:
+    depends_on:
+      - nginx
+    container_name: web
+    ports:
+      -5000:5000
+  
+  worker:
+    depends_on:
+      - nginx
+    container_name: worker
+    ports:
+      -9000:5000
+
+
+
+
+
