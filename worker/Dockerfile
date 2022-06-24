@@ -2,7 +2,7 @@ FROM zarak.fr:8092/cache/library/python:3
 
 WORKDIR /worker
 
-ENV FLASK_RUN_PORT 5000
+ENV FLASK_RUN_PORT 9000
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
