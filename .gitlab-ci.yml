@@ -15,9 +15,9 @@ stages:
 lint:
   stage: lint
   script:
-    - pylint web/ >> temp.txt
     - pylint worker/ >> temp.txt
-  artifacts:
+    - pylint web/ >> temp.txt
+    artifacts:
         paths:
           - temp.txt
 
