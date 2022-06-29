@@ -13,16 +13,14 @@ stages:
 lint:
   stage: lint
   script:
-    - pylint worker/app.py >> temp.txt
-    - pylint web/app.py >> temp.txt
+    - pylint worker/ >> temp.txt
+    - pylint web/ >> temp.txt
   artifacts:
-    paths:
-      - temp.txt
+        paths:
+          - temp.txt
 
 display-lint:
   stage: display-lint
   script:
     - cat temp.txt
     - rm -f temp.txt
-  dependencies:
-    - lint

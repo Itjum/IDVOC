@@ -1,8 +1,8 @@
 # pylint: disable=E0401,C0116,C0114,W0602,C0103,W0702
 
-from flask import Flask
 import redis
 import os
+from flask import Flask
 
 app = Flask(__name__)
 
