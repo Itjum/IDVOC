@@ -4,7 +4,8 @@ before_script:
   - python --version
   - pip install pylint==2.14.3
   - pylint --version
-  - touch result.txt
+  - touch temp.txt
+
 
 stages:
   - lint
@@ -13,14 +14,16 @@ stages:
 lint:
   stage: lint
   script:
-    - pylint web/ >> result.txt
-    - pylint worker/ >> result.txt
+    - pylint web/ >> temp.txt
+    - pylint worker/ >> temp.txt
   artifacts:
         paths:
-          - result.txt
+          - temp.txt
 
 display-lint:
   stage: display-lint
   script:
-    - cat result.txt
-    - rm -f result.txt
+    - cat temp.txt
+    - rm -f temp.txt
+  dependencies:
+    - lint
