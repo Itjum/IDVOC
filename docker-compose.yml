@@ -21,6 +21,11 @@ services:
     build: web
     networks:
       - front
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 100M
   
   worker:
     container_name: worker
@@ -29,12 +34,21 @@ services:
       - back
     depends_on:
       - redis
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 100M
 
   redis:
     image: zarak.fr:8092/cache/library/redis:7.0.1-alpine
     container_name: redis
     networks:
       - back
+    deploy:
+      resources:
+        limits:
+          memory: 100M
 
 networks:
   front:
