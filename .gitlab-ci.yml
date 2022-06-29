@@ -6,8 +6,6 @@ before_script:
   - pylint --version
   - touch temp.txt
 
-
-
 stages:
   - lint
   - display-lint
@@ -15,8 +13,8 @@ stages:
 lint:
   stage: lint
   script:
-    - pylint worker/ >> temp.txt
-    - pylint web/ >> temp.txt
+    - pylint worker/app.py >> temp.txt
+    - pylint web/app.py >> temp.txt
     artifacts:
         paths:
           - temp.txt
