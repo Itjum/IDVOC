@@ -1,8 +1,8 @@
 # pylint: disable=E0401,C0116,C0114,W0602,C0103,W0702
 
-import redis
 import os
 from flask import Flask
+import redis
 
 redis = redis.Redis(
          host= os.environ.get("REDIS_HOST", 'redis'),
