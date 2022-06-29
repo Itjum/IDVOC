@@ -14,7 +14,6 @@ lint:
   stage: lint
   script:
     - pylint web/ >> result.txt
-  script:
     - pylint worker/ >> result.txt
   artifacts:
         paths:
