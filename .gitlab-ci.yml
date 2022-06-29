@@ -1,0 +1,27 @@
+image: python:3.10-alpine
+
+before_script:
+  - python --version
+  - pip install pylint==2.14.3
+  - pylint --version
+  - touch result.txt
+
+stages:
+  - lint
+  - display-lint
+
+lint:
+  stage: lint
+  script:
+    - pylint web/ >> result.txt
+  script:
+    - pylint worker/ >> result.txt
+  artifacts:
+        paths:
+          - result.txt
+
+display-lint:
+  stage: display-lint
+  script:
+    - cat result.txt
+    - rm -f result.txt
