@@ -15,9 +15,9 @@ lint:
   script:
     - pylint worker/app.py >> temp.txt
     - pylint web/app.py >> temp.txt
-    artifacts:
-        paths:
-          - temp.txt
+  artifacts:
+    paths:
+      - temp.txt
 
 display-lint:
   stage: display-lint
