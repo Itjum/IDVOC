@@ -6,6 +6,7 @@ before_script:
   - pylint --version
   - touch result.txt
 
+
 stages:
   - lint
   - display-lint
@@ -24,3 +25,5 @@ display-lint:
   script:
     - cat result.txt
     - rm -f result.txt
+  dependencies:
+    - lint
