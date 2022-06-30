@@ -3,7 +3,9 @@ version: '3'
 services:
   nginx:
     container_name: nginx
+    hostname: nginx
     image: zarak.fr:8092/cache/library/nginx:1.22-alpine
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -18,7 +20,9 @@ services:
 
   web:
     container_name: web
+    hostname: web
     build: web
+    restart: always
     networks:
       - front
     deploy:
@@ -29,7 +33,9 @@ services:
   
   worker:
     container_name: worker
+    hostname: worker
     build: worker
+    restart: always
     networks:
       - back
     depends_on:
@@ -43,6 +49,10 @@ services:
   redis:
     image: zarak.fr:8092/cache/library/redis:7.0.1-alpine
     container_name: redis
+    hostname: redis
+    restart: always
+    volumes:
+      - ./redis-persistence:/redis/data
     networks:
       - back
     deploy:
