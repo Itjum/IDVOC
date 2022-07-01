@@ -6,10 +6,6 @@ before_script:
   - pylint --version
   - touch temp.txt
 
-stages:
-  - lint
-  - display-lint
-
 lint:
   stage: lint
   script:
@@ -24,3 +20,7 @@ display-lint:
   script:
     - cat temp.txt
     - rm -f temp.txt
+
+stages:
+  - lint
+  - display-lint
