@@ -1,9 +1,7 @@
 image: python:3.10-alpine
 
 before_script:
-  - python --version
   - pip install pylint==2.14.3
-  - pylint --version
   - touch temp.txt
 
 lint:
