@@ -17,6 +17,10 @@ services:
     networks:
       - back
       - front
+    deploy:
+      resources:
+        limits:
+          memory: 100M
 
   web:
     container_name: web
