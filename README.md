@@ -1,1 +1,1 @@
-Little docker initiation project
+Little docker initiation exercice
